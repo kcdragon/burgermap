@@ -1,0 +1,39 @@
+.row
+  .medium-4.columns
+    .row.collapse
+      .medium-12.columns
+        = form_tag restaurants_path, method: :get do
+          .row.collapse
+            .medium-12.columns
+              = text_field_tag :location, params[:location], placeholder: 'Location'
+
+          .row.collapse
+            .medium-9.columns
+              = text_field_tag :q, params[:q], placeholder: 'Keywords'
+            .medium-3.columns
+              = submit_tag 'Search', class: ['button', 'tiny']
+
+    .row.collapse
+      .medium-12.columns
+        %ol.results{ start: @restaurants.start }
+          - @restaurants.each do |restaurant|
+            %li.result{ data: { restaurant: restaurant.to_json } }
+              = "#{restaurant.name} (#{number_with_precision(restaurant.distance, precision: 1)} mi)"
+              .sub-result
+                .rating{ data: { rating: restaurant.rating.to_i } }
+                = restaurant.burgers.map(&:category).join(', ')
+                -#- restaurant.burgers.each do |burger|
+                  %li.sub-result
+                    .row.collapse
+                      .small-6.columns
+                        = burger.category
+                      -#.small-6.columns
+                        - if burger.reviews.present?
+                          .rating{ data: { rating: burger.rating.to_i } }
+
+        %p= pluralize(@restaurants.total_count, 'result')
+        = paginate @restaurants
+
+  .medium-8.columns
+    .row
+      #map-canvas{ style: 'height: 500px', data: { location: { latitude: location[0], longitude: location[1] }, restaurants: @restaurants.to_json } }

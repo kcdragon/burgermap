@@ -1,0 +1,25 @@
+$results-border-color: #CCC;
+
+.results {
+    list-style-position: inside;
+    margin-left: 0px;
+}
+
+.result {
+    padding-left: 10px;
+    border-bottom: 1px solid $results-border-color;
+    border-left: 1px solid $results-border-color;
+    border-right: 1px solid $results-border-color;
+
+    &:hover {
+	background-color: rgb(220, 220, 220);
+    }
+
+    &:first-child {
+	border-top: 1px solid $results-border-color;
+    }
+}
+
+.sub-result {
+    padding-left: 25px;
+}

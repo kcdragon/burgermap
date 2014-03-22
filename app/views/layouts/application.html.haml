@@ -1,0 +1,37 @@
+!!! 5
+%html{ :lang => "en"}
+  %head
+    %meta{ :charset => "utf-8" }
+
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+
+    %title= content_for?(:title) ? yield(:title) : 'Burger Map'
+
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "vendor/modernizr"
+    %script{ type: 'text/javascript', src: "https://maps.googleapis.com/maps/api/js?key=#{GOOGLE_MAP_API_KEY}&sensor=false" }
+    = csrf_meta_tag
+
+  %body
+
+    %nav.top-bar{ data: { topbar: true } }
+      %ul.title-area
+        %li.name
+          %h1
+            = link_to 'Burger Map', root_path
+      %section.top-bar-section
+        %ul.right
+          - if user_signed_in?
+            %li
+              = link_to 'Edit profile', edit_user_registration_path
+            %li
+              = link_to "Logout", destroy_user_session_path, method: :delete
+          - else
+            %li
+              = link_to "Sign up", new_user_registration_path
+            %li
+              = link_to "Login", new_user_session_path
+
+    = yield
+
+    = javascript_include_tag "application"
