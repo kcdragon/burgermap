@@ -1,3 +1,6 @@
+$navbar-bg: red;
+$navbar-margin-bottom: 10px;
+
 // Foundation by ZURB
 // foundation.zurb.com
 // Licensed under MIT Open Source
@@ -637,7 +640,8 @@ $primary-color: orange;
 
 // Off-canvas
 
-// $tabbar-bg: #333;
+// $tabbar-bg: #333
+$tabbar-bg: $navbar-bg;
 // $tabbar-height: rem-calc(45);
 // $tabbar-line-height: $tabbar-height;
 // $tabbar-color: #FFF;
@@ -656,6 +660,7 @@ $primary-color: orange;
 // Off Canvas Menu Variables
 // $off-canvas-width: 250px;
 // $off-canvas-bg: #333;
+$off-canvas-bg: $navbar-bg;
 
 // Off Canvas Menu List Variables
 // $off-canvas-label-padding: 0.3rem rem-calc(15);
@@ -1132,13 +1137,13 @@ $primary-color: orange;
 
 // Background color for the top bar
 // $topbar-bg-color: #333;
-$topbar-bg-color: red;
+$topbar-bg-color: $navbar-bg;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
 // $topbar-height: 45px;
 // $topbar-margin-bottom: 0;
-$topbar-margin-bottom: 10px;
+$topbar-margin-bottom: $navbar-margin-bottom;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: normal;
@@ -1162,6 +1167,7 @@ $topbar-margin-bottom: 10px;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg-hover: #272727;
+$topbar-link-bg-hover: $primary-color;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
@@ -1176,6 +1182,7 @@ $topbar-margin-bottom: 10px;
 // $topbar-dropdown-label-font-weight: bold;
 // $topbar-dropdown-label-font-size: rem-calc(10);
 // $topbar-dropdown-label-bg: #333;
+$topbar-dropdown-label-bg: white;
 
 // Top menu icon styles
 // $topbar-menu-link-transform: uppercase;

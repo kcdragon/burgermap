@@ -23,3 +23,17 @@ $results-border-color: #CCC;
 .sub-result {
     padding-left: 25px;
 }
+
+.dropdown-content {
+    background-color: white;
+    padding: 15px;
+}
+
+.login-actions {
+    padding-top: 10px;
+
+    .checkbox label {
+	margin-left: 0px;
+	padding-left: 0px;
+    }
+}
