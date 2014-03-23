@@ -19,5 +19,6 @@
 //= require restaurants
 //= require sign_in_dropdown
 //= require search
+//= require_tree .
 
 $(function(){ $(document).foundation(); });
