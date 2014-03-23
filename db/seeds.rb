@@ -1,3 +1,7 @@
+User.create(email: 'foo@bar.com',
+            password: 'password',
+            password_confirmation: 'password')
+
 20.times do |i|
   latitude = 39.9 + (1.0 / (rand(100) - 50))
   longitude = -75.1 + (1.0 / (rand(100) - 50))

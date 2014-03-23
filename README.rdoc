@@ -1,4 +1,15 @@
-== DB Setup
+== Test Accounts
+Admin
+admin@example.com
+password
+
+User
+foo@bar.com
+password
+
+
+
+== Database Setup
 Postgres
 create role burgermap with createdb login password 'password1'
 

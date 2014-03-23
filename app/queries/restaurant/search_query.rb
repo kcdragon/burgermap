@@ -26,9 +26,12 @@ class Restaurant::SearchQuery
                              ON burger_ratings.restaurant_id = restaurants.id").
                       group('restaurants.id')
 
-
     if options[:sort] == 'rating'
-      results = results.order('rating DESC')
+      if location.present?
+        results = results.reorder('rating DESC, distance ASC')
+      else
+        results = results.order('rating DESC')
+      end
     end
 
     results.page(page).per(self.class.per_page)

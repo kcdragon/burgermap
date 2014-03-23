@@ -1,17 +1,8 @@
-.row
+.row.collapse
   .medium-4.columns
-    .row.collapse
-      .medium-12.columns
-        = form_tag restaurants_path, method: :get do
-          .row.collapse
-            .medium-12.columns
-              = text_field_tag :location, params[:location], placeholder: 'Location'
 
-          .row.collapse
-            .medium-9.columns
-              = text_field_tag :q, params[:q], placeholder: 'Keywords'
-            .medium-3.columns
-              = submit_tag 'Search', class: ['button', 'tiny']
+    .row.collapse
+      = select_tag :sort, options_for_select([['Sort by Location', nil], ['Sort by Rating', 'rating']], params[:sort]), class: 'sort-by'
 
     .row.collapse
       .medium-12.columns
@@ -27,5 +18,5 @@
         = paginate @restaurants
 
   .medium-8.columns
-    .row
+    .row.map-row
       #map-canvas{ style: 'height: 500px', data: { location: { latitude: location[0], longitude: location[1] }, restaurants: @restaurants.to_json } }

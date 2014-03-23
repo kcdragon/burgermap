@@ -15,6 +15,9 @@
 //= require jquery.raty
 //= require foundation
 //= require turbolinks
-//= require_tree .
+//= require active_admin
+//= require restaurants
+//= require sign_in_dropdown
+//= require search
 
 $(function(){ $(document).foundation(); });

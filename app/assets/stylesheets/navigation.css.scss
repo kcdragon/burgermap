@@ -1,3 +1,5 @@
+@import 'foundation_and_overrides';
+
 .show-for-small-only {
 
     nav {
@@ -6,5 +8,20 @@
 	.title {
 	    padding-left: 10px;
 	}
+    }
+
+    .left-off-canvas-toggle {
+	color: white;
+	font-size: 25px;
+	margin-left: 10px;
+
+	&:hover {
+	    color: scale-color(white, $lightness: -20%);
+	}
+    }
+
+    .left-off-canvas-menu input {
+	width: $off-canvas-width - 30;
+	margin: 10px;
     }
 }

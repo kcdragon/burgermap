@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
 
   def index
     if params.key?(:q)
-      @restaurants = Restaurant::SearchQuery.new(params[:q], location, page: params[:page]).all
+      @restaurants = Restaurant::SearchQuery.new(params[:q], location, page: params[:page], sort: params[:sort]).all
     else
       @restaurants = Kaminari.paginate_array([]).page(1).per(10)
     end

@@ -6,8 +6,11 @@ feature 'restaurants' do
     restaurant = create(:restaurant_with_burger)
 
     visit restaurants_path
-    fill_in 'q', with: 'test'
-    click_button 'Search'
+
+    within '#search-form' do
+      fill_in 'q', with: 'test'
+      click_button 'search'
+    end
 
     page.should have_content '1 result'
     page.should have_content restaurant.name
@@ -19,8 +22,11 @@ feature 'restaurants' do
     old_city_restaurant = create(:old_city_restaurant)
 
     visit restaurants_path
-    fill_in 'location', with: 'Old City, Philadelphia, PA'
-    click_button 'Search'
+
+    within '#search-form' do
+      fill_in 'location', with: 'Old City, Philadelphia, PA'
+      click_button 'search'
+    end
 
     page.should have_content /#{old_city_restaurant.name}.*#{university_city_restaurant.name}/
   end
@@ -32,8 +38,11 @@ feature 'restaurants' do
     old_city_restaurant = create(:old_city_restaurant)
 
     visit restaurants_path
-    fill_in 'location', with: 'Old City, Philadelphia, PA'
-    click_button 'Search'
+
+    within '#search-form' do
+      fill_in 'location', with: 'Old City, Philadelphia, PA'
+      click_button 'search'
+    end
 
     page.should     have_content old_city_restaurant.name
     page.should_not have_content university_city_restaurant.name

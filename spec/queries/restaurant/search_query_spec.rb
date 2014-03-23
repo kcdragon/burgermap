@@ -61,6 +61,22 @@ describe Restaurant::SearchQuery do
 
         expect(results).to eq [old_city_restaurant, university_city_restaurant]
       end
+
+      context 'when sort is rating and location' do
+        let(:options) { { sort: 'rating' } }
+
+        it 'sorts by rating' do
+          university_city_restaurant = create(:university_city_restaurant)
+
+          old_city_restaurant = create(:old_city_restaurant)
+          burger = old_city_restaurant.burgers.first
+          review = burger.reviews.first
+          review.rating = 1
+          review.save!
+
+          expect(results).to eq [university_city_restaurant, old_city_restaurant]
+        end
+      end
     end
   end
 end
