@@ -39,6 +39,7 @@ function initialize() {
 
 google.maps.event.addDomListener(window, 'load', initialize());
 google.maps.event.addDomListener(window, 'page:load', initialize()); // handles Turbolink page loads
+//google.maps.event.addDomListener(window, 'resize', initialize);
 
 $('li.result').click(function() {
     restaurant = $(this).data('restaurant');

@@ -38,6 +38,16 @@ $results-border-color: #CCC;
     }
 }
 
-.map-row {
-    padding-left: 15px;
+#map-container {
+    width: 100%;
+    height: 500px;
+}
+
+#map-canvas {
+    height: 100%;
+    width: 100%;
+
+    embed { max-width: none; height: auto; }
+    img { max-width: none; height: auto; }
+    object { max-width: none; height: auto; }
 }

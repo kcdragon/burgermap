@@ -1,0 +1,44 @@
+.row
+  .small-12.columns
+    %h2 Edit User
+
+.row
+  .medium-9.columns
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = devise_error_messages!
+
+      .row
+        .medium-2.columns
+          = f.label :email
+        .medium-10.columns
+          = f.email_field :email, autofocus: true
+
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        .row
+          Currently waiting confirmation for:
+          = resource.unconfirmed_email
+
+      .row
+        .medium-2.columns
+          = f.label :password
+        .medium-10.columns
+          = f.password_field :password, autocomplete: "off"
+
+      .row
+        .medium-2.columns
+          = f.label :password_confirmation
+        .medium-10.columns
+          = f.password_field :password_confirmation, autocomplete: "off"
+
+      .row
+        .medium-2.columns
+          = f.label :current_password
+        .medium-10.columns
+          = f.password_field :current_password, autocomplete: "off"
+
+      .row
+        .small-12.columns
+          = f.submit "Update", class: 'button'
+
+  .medium-3.columns
+    = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button'

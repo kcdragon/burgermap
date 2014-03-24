@@ -10,6 +10,10 @@ class RestaurantsDecorator
     restaurants.first_page? ? 1 : Restaurant::SearchQuery.per_page * (restaurants.current_page - 1) + 1
   end
 
+  def sort_options
+    [['Sort by Distance', nil], ['Sort by Rating', 'rating']]
+  end
+
   def to_json
     restaurants.to_json
   end

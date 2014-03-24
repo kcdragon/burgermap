@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.raty
 //= require foundation
-//= require turbolinks
 //= require active_admin
 //= require restaurants
 //= require sign_in_dropdown
@@ -22,3 +22,5 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+//= require turbolinks

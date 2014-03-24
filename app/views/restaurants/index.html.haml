@@ -1,8 +1,12 @@
 .row.collapse
+  .medium-8.columns
+    #map-container
+      #map-canvas{ data: { location: { latitude: location[0], longitude: location[1] }, restaurants: @restaurants.to_json } }
+
   .medium-4.columns
 
     .row.collapse
-      = select_tag :sort, options_for_select([['Sort by Location', nil], ['Sort by Rating', 'rating']], params[:sort]), class: 'sort-by'
+      = select_tag :sort, options_for_select(@restaurants.sort_options, params[:sort]), class: 'sort-by'
 
     .row.collapse
       .medium-12.columns
@@ -16,7 +20,3 @@
 
         %p= pluralize(@restaurants.total_count, 'result')
         = paginate @restaurants
-
-  .medium-8.columns
-    .row.map-row
-      #map-canvas{ style: 'height: 500px', data: { location: { latitude: location[0], longitude: location[1] }, restaurants: @restaurants.to_json } }
